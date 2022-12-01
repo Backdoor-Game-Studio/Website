@@ -1,9 +1,8 @@
-import './App.css';
-import Home from './screens/home';
+import Auth from "./screens/Auth";
 
 const App = () => {
-  return (
-    <Home />
+  return(
+    <Auth />
   );
 }
 

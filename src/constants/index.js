@@ -1,3 +1,3 @@
-import Theme from "./theme";
+import {Colors, Size} from "./theme";
 
-export {Theme};
+export {Colors, Size};
