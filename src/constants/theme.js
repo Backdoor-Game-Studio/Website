@@ -3,7 +3,8 @@ const Colors = {
     light_black: "#100c08",
     dark_grey: "#262626",
     light_grey: "#333333",
-    red: "#e42024"
+    red: "#e42024",
+    white: "#ffffff"
 }
 
 const Size = {

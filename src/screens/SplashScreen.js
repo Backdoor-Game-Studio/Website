@@ -1,12 +1,10 @@
-import { useEffect } from "react";
 import { Oval } from "react-loader-spinner";
 import { Colors, Size } from "../constants";
 const SplashScreen = () => {
 
     const date = new Date();
-
     return(
-        <div>
+        <>
             <div style={{flex: 1, display:"flex", justifyContent: "center", alignItems: "center", height: "90vh", width: "100vw", backgroundColor: Colors.dark_grey}}>
                 <div>
                     <Oval
@@ -25,7 +23,7 @@ const SplashScreen = () => {
                 </p>
             </div>
 
-        </div>
+        </>
     );
 }
 

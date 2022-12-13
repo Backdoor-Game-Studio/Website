@@ -1,5 +1,15 @@
+import React from "react";
+import Menu from "./Menu";
+
 const Home = () => {
-    return(<p> Home </p>);
+
+    return(
+        <>
+            <Menu page="Home"/>
+            <article><p>Home</p></article>
+            <footer></footer>
+        </>
+    );
 }
 
 export default Home;
