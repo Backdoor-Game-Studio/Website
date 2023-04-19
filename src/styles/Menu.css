@@ -1,0 +1,165 @@
+@import "varibles.css";
+
+.titleAndLogo {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: var(--header_height);
+    margin-right: 1vw;
+}
+
+.titleAndLogo > img {
+    height: var(--header_height);
+}
+
+.titleAndLogo > p {
+    color: var(--red);
+    font-size: 3vh;
+}
+
+.menu-li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--header_height);
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.menuContent {
+    background-color: transparent;
+    text-decoration: none;
+    font-size: var(--h3);
+    cursor: pointer;
+}
+
+header {
+    width: var(--header_width);
+    height: var(--header_height);
+    background-color: var(--light_black);
+}
+
+header > ul {
+    display: flex;
+    list-style-type: none;
+    flex-direction: row;
+    float: right;
+}
+
+.menuIcon {
+    background-color: white;
+    display: block;
+    flex-direction: column;
+    width: 22px;
+    height: 2px;
+    margin: 2px;
+}
+
+.mobileButton {
+    display: none;
+}
+
+.menuOverlay {
+    position: absolute;
+    display: flex;
+    z-index: 5;
+    height: var(--article_height);
+    width: 0vw;
+    top: var(--header_height);
+    transform: translateX(100vw);
+    background-color: var(--light_black);
+}
+
+.overlayUl {
+    display: none;
+    height: var(--article_height);
+    width: var(--article_width);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#menu-active {
+    transition: var(--animation_time);
+    width: 100vw;
+    transform: translateX(0vw);
+}
+
+#menu-deactive {
+    transition: var(--animation_time);
+    width: 0vw;
+    transform: translateX(100vw);
+}
+
+#bar1-active {
+    transition: var(--animation_time);
+    margin: 0;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 22px;
+}
+
+#bar1-deactive {
+    transition: var(--animation_time);
+    transform: rotate(0deg);
+}
+
+#bar2-active {
+    transition: var(--animation_time);
+    margin: 0;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 22px;
+}
+
+#bar2-deactive {
+    transition: var(--animation_time);
+    transform: rotate(0deg);
+}
+
+#bar3-active {
+    transition: var(--animation_time);
+    display: none;
+}
+
+#bar3-deactive {
+    transition: var(--animation_time);
+}
+
+
+@media screen and (max-width: 700px) {
+    .titleAndLogo > p { font-size: 2vh; }
+
+    .menu-li { margin: 5vw; }
+
+    .menuContent {
+        display: none;
+        z-index: 2;
+        font-size: 10vw;
+    }
+    header > ul {
+        position: absolute;
+        top: 6vh;
+        left: 0vw;
+        right: 0vw;
+        justify-content: center;
+        z-index: -1;
+    }
+    .mobileButton {
+        display: flex;
+        color: var(--white);
+        background-color: var(--red);
+        height: 6vh;
+        width: 50px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        float: right;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+    }
+}

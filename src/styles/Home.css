@@ -1,0 +1,66 @@
+@import "varibles.css";
+
+#home {
+    display: flex;
+    height: var(--article_height);
+    width: var(--article_width);
+}
+
+.overlay {
+    position: absolute;
+    height: var(--article_height);
+    width: var(--article_width);
+    background-color: var(--light_black);
+    opacity: 0.8;
+}
+
+#video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    height: var(--article_height);
+    width: var(--article_width);
+    top: var(--header_height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--red);
+}
+
+.content > p {
+    font-family: "Unutterable";
+    font-size: 10vw;
+} 
+
+.content > button {
+    transition: 0.5s;
+    margin: 1.5vw;
+    padding: 1.5vw;
+    font-size: 3vw;
+    background-color: var(--light_black);
+    border-radius: 1vh;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.content > button:hover {
+    transition: 0.5s;
+    box-shadow: 0vw 0vh 3vh var(--light_black);
+}
+
+
+@media screen and (max-width: 700px) {
+    .content > p { font-size: 15vw; }
+
+    .content > button {
+        margin: 4vw;
+        padding: 4vw;
+        border-radius: 4vw;
+        font-size: 8vw;
+    }
+}

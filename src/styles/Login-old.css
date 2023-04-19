@@ -1,0 +1,254 @@
+@import "varibles.css";
+
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--dark_grey);
+    height: var(--article_height);
+    width: var(--article_width);
+}
+
+#login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
+    width: 30vw;
+    margin: 1vh;
+    background-color: var(--light_black);
+    border-radius: 1vh;
+    box-shadow: 0vw 0vh 3vh var(--dark_black);
+}
+
+#register-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    width: 40vw;
+    margin: 1vh;
+    background-color: var(--light_black);
+    border-radius: 1vh;
+    box-shadow: 0vw 0vh 3vh var(--dark_black);
+}
+
+#login-label {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: var(--red);
+    font-size: 8vh;
+    height: 30%;
+    width: 80%;
+    padding: 1vh;
+}
+
+#register-label {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: var(--red);
+    font-size: 8vh;
+    height: 30%;
+    width: 80%;
+    padding: 1vh;
+}
+
+#login-box > form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 40%;
+    width: 80%;
+}
+
+#register-box > form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 40%;
+    width: 80%;
+}
+
+#login-box > form > label {
+    color: var(--white);
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+#register-box > form > label {
+    color: var(--white);
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+#login-box > form > input {
+    background-color: transparent;
+    border: 0.1vh solid var(--red);
+    color: var(--white);
+    padding: 1vh;
+}
+
+#register-box > form > input {
+    background-color: transparent;
+    border: 0.1vh solid var(--red);
+    color: var(--white);
+    padding: 1vh;
+}
+
+#login-test {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 30%;
+    width: 60%;
+}
+
+#register-test {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 30%;
+    width: 60%;
+}
+
+#terms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    width: 100%;
+}
+
+#terms > input {
+    margin-right: 1vw;
+}
+
+#terms > p {
+    color: var(--white);
+}
+
+#login-test > button {
+    transition: 0.5s;
+    background-color: var(--red);
+    margin: 1vh;
+    padding: 1vh;
+    border-radius: 1vh;
+    color: var(--white);
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+#register-test > button {
+    transition: 0.5s;
+    background-color: var(--red);
+    margin: 1vh;
+    margin-top: 5vh;
+    padding: 1vh;
+    border-radius: 1vh;
+    color: var(--white);
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+#login-test > button:hover {
+    transition: 0.5s;
+    box-shadow: 0vw 0vh 2vh var(--red);
+}
+
+#register-test > button:hover {
+    transition: 0.5s;
+    box-shadow: 0vw 0vh 2vh var(--red);
+}
+
+#login-attempt-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 30vw;
+    margin: 1vh;
+    background-color: var(--light_black);
+    border-radius: 1vh;
+    font-size: 2vh;
+    color: var(--white);
+    box-shadow: 0vw 0vh 3vh var(--dark_black);
+}
+
+#register-attempt-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 40vw;
+    margin: 1vh;
+    background-color: var(--light_black);
+    border-radius: 1vh;
+    font-size: 2vh;
+    color: var(--white);
+    box-shadow: 0vw 0vh 3vh var(--dark_black);
+}
+
+#login-attempt-box > p > span {
+    color:  var(--red);
+    cursor: pointer;
+}
+
+#register-attempt-box > p > span {
+    color:  var(--red);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1300px) {
+    #login-box {
+        width: 50vw;
+    }
+
+    #register-box {
+        width: 80vw;
+    }
+
+    #terms {
+        margin-top: 5vh;
+    }
+
+    #login-attempt-box {
+        height: 10vh;
+        width: 50vw;
+    }
+
+    #register-attempt-box {
+        height: 10vh;
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #login-box {
+        height: 70vh;
+        width: 80vw;
+    }
+
+    #register-box {
+        height: 70vh;
+        width: 80vw;
+    }
+
+    #register-test > button {
+        margin-top: 3vh;
+    }
+
+    #login-attempt-box {
+        width: 80vw;
+    }
+
+    #register-attempt-box {
+        width: 80vw;
+    }
+}

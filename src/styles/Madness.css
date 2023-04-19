@@ -1,0 +1,8 @@
+@import "varibles.css";
+
+#madness {
+    display: flex;
+    height: var(--article_height);
+    width: var(--article_width);
+    background-color: var(--dark_grey);
+}

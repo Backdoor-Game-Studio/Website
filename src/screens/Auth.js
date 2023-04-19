@@ -1,26 +1,25 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { postData } from "../Database";
 import Home from "./Home";
 import SplashScreen from "./SplashScreen";
 
-const Auth = () => {
 
-    let sleep = (milliseconds) => {
-        return new Promise(resolve => setTimeout(resolve, milliseconds))
+const Auth = async () => {
+
+    const navigate =  useNavigate();
+
+    const [haveToken, setHaveToken] = useState(false);
+    const refreshToken = localStorage.getItem('bgsRToken');
+
+    if (refreshToken) {
+        const result = await postData('token', {token: refreshToken});
+        if (!result === "not_have_access") localStorage.setItem('bgsRToken', result);
     }
 
-    let [loading, setLoading] = useState(true);
-
-    sleep(3000).then(r => {
-        setLoading(false);
-    })
-
-    return(     
-        loading
-        ?
-        <SplashScreen />
-        :
-        <Home />
-    );  
+    return(
+        navigate("/dashboard")
+    );
 }
 
 export default Auth;

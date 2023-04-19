@@ -1,0 +1,36 @@
+:root {
+    /* Colors */
+    --dark_black: #000000;
+    --light_black: #100c08;
+    --dark_grey: #262626;
+    --light_grey: #333333;
+    --red: #e42024;
+    --white: #ffffff;
+
+    /* Font Sizes */
+    --h1: 50px;
+    --h2: 25px;
+    --h3: 20px;
+    --h4: 15px;
+
+    /* Website parameters */
+    
+        /* Animation time */
+        --animation_time: 1s;
+
+        /* Mobile size */
+        --mobile: 700px;
+    
+        /* Header */
+        --header_height: 6vh;
+        --header_width: 100vw;
+    
+        /* Article */
+        --article_height: 91vh;
+        --article_width: 100vw;
+    
+        /* Footer */
+        --footer_height: 3vh;
+        --footer_width: 100vw;
+}
+

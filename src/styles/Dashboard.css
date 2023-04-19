@@ -1,0 +1,361 @@
+@import "varibles.css";
+
+#dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--dark_grey);
+    height: var(--article_height);
+    width: var(--article_width);
+}
+
+#cards{
+    display: flex;
+    flex-direction: row;
+}
+
+.savecard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    width: 15vw;
+    background-color: var(--light_black);
+    border: 0.5vh solid var(--red);
+    border-top: 0;
+    margin: 1vh;
+    color: var(--white);
+}
+
+.emptycard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 15vw;
+    border: 0.5vh dashed var(--light_black);
+    margin: 1vh;
+    color: var(--light_black);
+    font-size: 4vh;
+}
+
+.loadcard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 15vw;
+    background-color: var(--light_black);
+    border: 0.5vh solid var(--light_black);
+    margin: 1vh;
+}
+
+#dwindow {
+    height: 6%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 2vh;
+    background-color: var(--red);
+    color: var(--white);
+}
+
+#dwindow-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.dwindow-buttons-style {
+    height: 2vh;
+    width: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1vh solid var(--white);
+    font-size: 1.5vh;   
+}
+
+.savedata {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: var(--white); 
+}
+
+.savedata-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    width: 100%;
+    font-size: 2vh;
+}
+
+.savedata-head-name {
+    font-size: 3vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font-weight: bold;
+}
+
+.savedata-head-time {
+    font-size: 2vh;
+    margin-bottom: 1vh;
+    color: var(--light_grey);
+}
+
+.savedata-head-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+    justify-content: flex-end;
+    height: 4vh;
+    width: 90%;
+    background-color: var(--dark_grey);
+}
+
+.savedata-head-bar-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: var(--red);
+}
+
+.savedata-head-map {
+    font-size: 2vh;
+    color: var(--white);
+}
+
+.savedata-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 100%;
+    font-size: 1.5vh;
+}
+
+.savedata-body-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 33.33%;
+}
+
+.savedata-body-item-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+}
+
+.savedata-body-img {
+    height: 9vh;
+    width: 9vh;
+}
+
+.not_have {
+    opacity: 0.1;
+    z-index: 1;
+}
+
+#userinfo {
+    height: 10vh;
+    width: calc(8 * 1vh + 10 * 0.5vh + 5 * 15vw);
+    background-color: var(--light_black);
+    margin-bottom: 5vh;
+    color: var(--white);
+}
+
+#user {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:safe;
+    font-size: 2vh;
+}
+
+#user-panel {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#user-icon {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+#user-icon-plate {
+    height: 6vh;
+    width: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vh;
+    background-color: var(--red);
+    color: var(--white);
+}
+
+#user-data {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#user-username {
+    height: 2vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#user-username-change {
+    font-weight: bold;
+    background-color: transparent;
+    color: var(--white);
+    font-size: 2vh;
+}
+
+.user-username-check {
+    height: 2vh;
+    width: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5vw;
+    background-color: var(--red);
+    color: var(--white);
+}
+
+#user-email {
+    font-size: 1.5vh;
+    color: var(--red);
+}
+
+#user-logout {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#user-logout-button {
+    height: 6vh;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vh;
+    background-color: var(--red);
+    color: var(--white);
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+#user-logout-button-text {
+    margin-right: 0.5vw;
+}
+
+#loaduser {
+    height: 10vh;
+    width: calc(8 * 1vh + 10 * 0.5vh + 5 * 15vw);
+    background-color: var(--light_black);
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1300px) {
+
+    #dashboard {
+        flex-direction: column;
+        height: max-content;
+    }
+
+    #cards{
+        flex-direction: column;
+        margin-bottom: 6vh;
+    }
+
+    .savecard {
+        height: 50vh;
+        width: 80vw;
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+
+    .emptycard {
+        height: 50vh;
+        width: 80vw;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .loadcard {
+        height: 50vh;
+        width: 80vw;
+        margin-top: 5%;
+        margin-bottom: 10%;   
+    }
+
+    #dwindow {
+        visibility: visible;
+        height: 20%;
+    }
+
+    #dwindow-buttons {
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    .dwindow-buttons-style {
+        width: 100%;
+        height: 60%;
+    }
+
+    #userinfo {
+        width: calc(2 * 0.5vh + 80vw);
+        margin-top: 6vh;
+    }
+
+    .loaduser {
+        width: calc(2 * 0.5vh + 80vw);
+    }
+
+    #user-logout-button {
+        width: 50%;
+        font-size: 1.5vh;
+    }
+}
