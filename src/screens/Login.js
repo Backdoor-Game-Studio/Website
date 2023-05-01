@@ -84,7 +84,7 @@ const Login = () => {
             const login = async (username, password) => {
                 try {
 
-                    const result = await postData('login', {username, password});
+                    const result = await postData('auth/login', {username, password});
                     if (result === "wrong_auth_data") return setAlert("The username or password is incorrect!");
 
                     const refreshToken = result.refreshToken;
@@ -186,7 +186,33 @@ const Login = () => {
             }
 
             // fetch data
-            console.log("register ok");
+            const register = async (username, email, password) => {
+                try {
+
+                    const result = await postData('auth/register', {username, email, password});
+                    if (result === "wrong_request") return setAlert("Wrong request!");
+                    if (result === "short_or_long") return setAlert("The username must be between 6 and 12 characters, password must be at least 6 characters long!");
+                    if (result === "invalid_username") return setAlert("Invalid username!");
+                    if (result === "invalid_email") return setAlert("Invalid Email!");
+                    if (result === "username_taken") return setAlert("Username Taken!");
+                    if (result === "email_taken") return setAlert("Email Taken!");
+                    if (result === "invalid_request") return setAlert("Invalid request!");
+
+                    const refreshToken = result.refreshToken;
+
+                    if (refreshToken) {
+
+                        localStorage.setItem('bgsRToken', refreshToken);
+                        return setHaveToken(true);
+
+                    } else return setAlert("Username or passwod or email have error!");
+
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            register(username, email, password);
 
         }
 

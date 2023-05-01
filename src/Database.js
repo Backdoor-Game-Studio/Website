@@ -1,6 +1,6 @@
-const url = "http://192.168.0.249:4545/";
+const url = "http://5.75.233.185:4545/";
 
-export const postData = (route, data = {}) => new Promise( async (resolve, reject) => {
+export const postData = (route, data = {}, auth = {}) => new Promise( async (resolve, reject) => {
   //console.log('postdata invoked')
   try {
     // Default options are marked with *
@@ -11,7 +11,8 @@ export const postData = (route, data = {}) => new Promise( async (resolve, rejec
       credentials: 'same-origin', // include, *same-origin, omit
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + auth
       },
       redirect: 'follow', // manual, *follow, error
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url

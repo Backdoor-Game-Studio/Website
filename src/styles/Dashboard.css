@@ -78,7 +78,8 @@
     justify-content: center;
     align-items: center;
     border: 0.1vh solid var(--white);
-    font-size: 1.5vh;   
+    font-size: 1.5vh; 
+    cursor: pointer;  
 }
 
 .savedata {
@@ -101,10 +102,17 @@
 }
 
 .savedata-head-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
     font-size: 3vh;
     margin-top: 1vh;
     margin-bottom: 1vh;
     font-weight: bold;
+    background: none;
+    color: var(--white);
 }
 
 .savedata-head-time {
@@ -250,8 +258,10 @@
     justify-content: center;
     align-items: center;
     margin-left: 0.5vw;
-    background-color: var(--red);
+    /*background-color: var(--red);*/
+    background: none;
     color: var(--white);
+    font-size: 2vh;
 }
 
 #user-email {
@@ -279,6 +289,7 @@
     color: var(--white);
     margin-left: 2vh;
     margin-right: 2vh;
+    cursor: pointer;
 }
 
 #user-logout-button-text {

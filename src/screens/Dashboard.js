@@ -21,13 +21,13 @@ const Dashboard = () => {
     let [loadState, isLoadState] = useState(false);
     let [saveDataArray, setSaveDataArray] = useState("Loading");
     let [userInfoArray, setUserInfoArray] = useState("Loading");
-
+    let [accToken, setAccToken] = useState("Loading");
     useEffect(() => {
 
         const refreshToken = localStorage.getItem("bgsRToken");
 
         const getSaves = async (token) => {
-            const result = await getData("saves", token);
+            const result = await getData("saves/getsaves", token);
             const data = result;
 
             if (data !== "not_have_saves") {
@@ -53,6 +53,7 @@ const Dashboard = () => {
             if (refreshToken) {
                 const result = await postData("token", {token: refreshToken});
                 const token = result.accessToken;
+                setAccToken(token);
 
                 if (!token) {
                     localStorage.removeItem("bgsRToken");
@@ -79,7 +80,6 @@ const Dashboard = () => {
 
             window.addEventListener('load', onPageLoad, false);
             return () => window.removeEventListener('load', onPageLoad);
-
         }
 
     }, []);
@@ -91,6 +91,53 @@ const Dashboard = () => {
                 <Oval height={"5em"} width={"5em"} color={Colors.red} secondaryColor={Colors.dark_black}/>
             </div>
         );
+    }
+
+    const getNewAccesToken = async () => {
+        const refreshToken = localStorage.getItem("bgsRToken");
+
+        const result = await postData("token", {token: refreshToken});
+        const token = result.accessToken;
+        return setAccToken(token);
+    }
+
+    const deleteSave = async (savename, token) => {
+        if (window.confirm(`Are you sure you delete your "${savename.savename}" backup?`)) {
+
+            const result = await postData("saves/delsave", savename, token);
+            if (result === "successfully_delete") {
+                return window.location.reload();
+            } else {
+                await getNewAccesToken();
+                const newResult = await postData("saves/delsave", savename, token);
+                if (newResult === "successfully_delete") {
+                    return window.location.reload();
+                } else return window.alert("Please try again!");
+            }
+
+        }
+    }
+
+    const editSaveName = async (oldName, token) => {
+        let newSaveName = prompt("Please enter new save name:", oldName);
+
+
+        if (newSaveName === null || newSaveName === "" || newSaveName === oldName) return;
+        else {
+            if (newSaveName.length > 12 ) return window.alert("Max 12 characters!");
+            
+            const result = await postData("saves/editsavename",{savename: oldName, editname: newSaveName}, token);
+
+            if (result === "successfully_edit_name") {
+                return window.location.reload();
+            } else {
+                await getNewAccesToken();
+                const newResult = await postData("saves/editsavename",{savename: oldName, editname: newSaveName}, token);
+                if (newResult === "successfully_edit_name") {
+                    return window.location.reload();
+                } else return window.alert("Please try again!");
+            }
+        }
     }
 
     const viewSave = (number) => {
@@ -124,14 +171,14 @@ const Dashboard = () => {
             <div key={number} className="savecard">
                 <div id="dwindow">
                         <div id="dwindow-buttons">
-                            <div className="dwindow-buttons-style">
+                            <div className="dwindow-buttons-style" onClick={() => deleteSave({savename: getSaveData.name}, accToken)}>
                                 <p>Delete</p>
                             </div>
                         </div>
                 </div>
                 <div className="savedata">
                     <div className="savedata-head">
-                        <p className="savedata-head-name"> { getSaveData.name } </p>
+                        <p className="savedata-head-name"> { getSaveData.name } <button onClick={() => {editSaveName(getSaveData.name, accToken)}} className="user-username-check"> <BiPencil /> </button> </p>
                         <p className="savedata-head-time"> { `(UTC${getSaveData.utc}) ${getSaveData.date} ${getSaveData.time}` } </p>
                         <div className="savedata-head-bar">
                             <div className="savedata-head-bar-progress" style={{width: ( `${getSaveData.map * 33.33}%` )}}>
@@ -223,6 +270,11 @@ const Dashboard = () => {
         );
     }
 
+    const logOut = () => {
+        localStorage.clear();     
+        window.location.reload();
+    }
+
     let[username, setUsername] = useState("");
 
     const viewUser = () => {
@@ -247,7 +299,7 @@ const Dashboard = () => {
                     </div>
                     <div id="user-data">
                         <div id="user-username">
-                        <input type="text" id="user-username-change"
+                        {/*<input type="text" id="user-username-change"
                             value={username === "" ? getUserData.username : username}
                             style={{width: (username === "" ? getUserData.username.length + 1 : username.length + 1) + "ch" }}
                             onChange={(event) => {setUsername(event.target.value)}} />
@@ -255,13 +307,14 @@ const Dashboard = () => {
                             <>
                             <button className="user-username-check"> <BiCheck /> </button>
                             <button className="user-username-check"> <BiX /> </button>
-                            </> : <></>}
+                            </> : <></>*/}
+                            <p id="user-username-change">{getUserData.username}</p>
                         </div>
-                        <p id="user-email">{getUserData.email} <BiPencil /></p>
+                        <p id="user-email">{getUserData.email}</p>
                     </div>
                 </div>
                 <div id="user-logout">
-                    <button id="user-logout-button">
+                    <button id="user-logout-button" onClick={logOut}>
                         <p id="user-logout-button-text">Log out</p>
                         <BiExit/>
                     </button>
